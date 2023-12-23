@@ -99,6 +99,7 @@ export function getRandomAvatarOption(
         shape: getRandomValue<EarringsShape | None>(SETTINGS.earringsShape, {
           usually: [NONE],
         }),
+        fillColor: getRandomFillColor(),
       },
       eyebrows: {
         shape: getRandomValue(SETTINGS.eyebrowsShape, {
@@ -119,6 +120,7 @@ export function getRandomAvatarOption(
         shape: getRandomValue<GlassesShape | None>(SETTINGS.glassesShape, {
           usually: [NONE],
         }),
+        fillColor: getRandomFillColor(),
       },
       mouth: {
         shape: getRandomValue(SETTINGS.mouthShape, {

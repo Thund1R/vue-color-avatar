@@ -79,6 +79,8 @@
           v-if="
             s.widgetType === WidgetType.Tops ||
             s.widgetType === WidgetType.Face ||
+            s.widgetType === WidgetType.Earrings ||
+            s.widgetType === WidgetType.Glasses ||
             s.widgetType === WidgetType.Clothes
           "
           class="color-picker"
@@ -154,7 +156,7 @@ const sections = ref<
     }[]
   }[]
 >([])
-const selectedColor = ref('#FFFFFF')
+const selectedColor = ref('#a4b2c1')
 
 onMounted(() => {
   void (async () => {
@@ -173,7 +175,9 @@ onMounted(() => {
   })()
 })
 function selectColor(color: string) {
-  colorData.push(color)
+  if (color) {
+    colorData.unshift(color)
+  }
 }
 
 async function getWidgets(widgetType: WidgetType) {
@@ -261,6 +265,7 @@ function getWidgetColor(type: string) {
   if (
     type === WidgetType.Face ||
     type === WidgetType.Tops ||
+    type === WidgetType.Earrings ||
     type === WidgetType.Clothes
   ) {
     return avatarOption.value.widgets[type]?.fillColor
@@ -438,5 +443,14 @@ function getWidgetColor(type: string) {
       }
     }
   }
+}
+:deep .el-color-picker__trigger {
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border: 0;
+}
+:deep .el-color-picker__color {
+  border: none;
 }
 </style>

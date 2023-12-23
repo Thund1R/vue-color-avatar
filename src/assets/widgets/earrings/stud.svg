@@ -11,7 +11,7 @@
       cx="25"
       cy="4"
       r="4"
-      fill="#F4D150"
+      fill="$fillColor"
     />
     <circle
       cx="26"
