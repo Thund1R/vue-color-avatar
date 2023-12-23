@@ -266,6 +266,7 @@ function getWidgetColor(type: string) {
     type === WidgetType.Face ||
     type === WidgetType.Tops ||
     type === WidgetType.Earrings ||
+    type === WidgetType.Glasses ||
     type === WidgetType.Clothes
   ) {
     return avatarOption.value.widgets[type]?.fillColor
@@ -445,9 +446,9 @@ function getWidgetColor(type: string) {
   }
 }
 :deep .el-color-picker__trigger {
-  padding: 0;
   width: 24px;
   height: 24px;
+  padding: 0;
   border: 0;
 }
 :deep .el-color-picker__color {
