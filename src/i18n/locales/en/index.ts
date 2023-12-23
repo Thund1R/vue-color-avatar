@@ -15,6 +15,7 @@ export default {
     close: 'Close',
   },
   label: {
+    colorPicker: 'Color Picker',
     wrapperShape: 'Avatar Shape',
     borderColor: 'Border Color',
     backgroundColor: 'Background Color',

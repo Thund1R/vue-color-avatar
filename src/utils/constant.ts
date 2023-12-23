@@ -1,3 +1,5 @@
+import { reactive } from 'vue'
+
 import type { AvatarOption, AvatarSettings } from '@/types'
 
 import {
@@ -16,6 +18,24 @@ import {
   WidgetType,
   WrapperShape,
 } from '../enums'
+
+const colorData = reactive([
+  '#000000',
+  '#FFFFFF',
+  '#6BD9E9',
+  '#FC909F',
+  '#F4D150',
+  '#E0DDFF',
+  '#D2EFF3',
+  '#FFEDEF',
+  '#FFEBA4',
+  '#506AF4',
+  '#F48150',
+  '#48A99A',
+  '#C09FFF',
+  '#FD6F5D',
+])
+export default colorData
 
 export const AVATAR_LAYER: Readonly<{
   [key in `${WidgetType}`]: { zIndex: number }
@@ -71,28 +91,13 @@ export const SETTINGS: Readonly<AvatarSettings> = {
   beardShape: Object.values(BeardShape),
   clothesShape: Object.values(ClothesShape),
 
-  commonColors: [
-    '#000000',
-    '#FFFFFF',
-    '#6BD9E9',
-    '#FC909F',
-    '#F4D150',
-    '#E0DDFF',
-    '#D2EFF3',
-    '#FFEDEF',
-    '#FFEBA4',
-    '#506AF4',
-    '#F48150',
-    '#48A99A',
-    '#C09FFF',
-    '#FD6F5D',
-  ],
+  commonColors: colorData,
 
   skinColors: ['#F8D9CE', '#F9C9B6', '#DEB3A3', '#C89583', '#9C6458'],
 
   get backgroundColor() {
     return [
-      ...this.commonColors,
+      ...colorData,
       'linear-gradient(45deg, #E3648C, #D97567)',
       'linear-gradient(62deg, #8EC5FC, #E0C3FC)',
       'linear-gradient(90deg, #ffecd2, #fcb69f)',
@@ -103,7 +108,7 @@ export const SETTINGS: Readonly<AvatarSettings> = {
   },
 
   get borderColor() {
-    return [...this.commonColors, 'transparent']
+    return [...colorData, 'transparent']
   },
 }
 

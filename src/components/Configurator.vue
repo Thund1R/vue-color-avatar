@@ -1,6 +1,13 @@
 <template>
   <PerfectScrollbar class="configurator-scroll">
     <div class="configurator">
+      <SectionWrapper :title="t('label.colorPicker')">
+        <el-color-picker
+          v-model="selectedColor"
+          :show-alpha="true"
+          @change="selectColor"
+        />
+      </SectionWrapper>
       <SectionWrapper :title="t('label.wrapperShape')">
         <ul class="wrapper-shape">
           <li
@@ -129,7 +136,7 @@ import {
   WidgetType,
 } from '@/enums'
 import { useAvatarOption } from '@/hooks'
-import { AVATAR_LAYER, SETTINGS } from '@/utils/constant'
+import colorData, { AVATAR_LAYER, SETTINGS } from '@/utils/constant'
 import { previewData } from '@/utils/dynamic-data'
 
 const { t } = useI18n()
@@ -147,6 +154,7 @@ const sections = ref<
     }[]
   }[]
 >([])
+const selectedColor = ref('#FFFFFF')
 
 onMounted(() => {
   void (async () => {
@@ -164,6 +172,9 @@ onMounted(() => {
     })
   })()
 })
+function selectColor(color: string) {
+  colorData.push(color)
+}
 
 async function getWidgets(widgetType: WidgetType) {
   const list = SETTINGS[`${widgetType}Shape`]

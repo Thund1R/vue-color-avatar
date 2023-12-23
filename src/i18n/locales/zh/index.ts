@@ -15,6 +15,7 @@ export default {
     close: '关闭',
   },
   label: {
+    colorPicker: '颜色选择器',
     wrapperShape: '头像形状',
     borderColor: '边框颜色',
     backgroundColor: '背景颜色',
